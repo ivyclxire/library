@@ -1,25 +1,38 @@
 <odoo>
-    <record id="view_book_category_tree" model="ir.ui.view">
-        <field name="name">library.book.category.tree</field>
+    <record id="library_book_category_list_view" model="ir.ui.view">
+        <field name="name">Book Category List</field>
         <field name="model">library.book.category</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree string="Book Categories">
                 <field name="name"/>
             </tree>
         </field>
     </record>
 
 
-    <record id="view_book_category_form" model="ir.ui.view">
-        <field name="name">library.book.category.form</field>
+    <record id="library_book_category_form_view" model="ir.ui.view">
+        <field name="name">Book Category Form</field>
         <field name="model">library.book.category</field>
         <field name="arch" type="xml">
-            <form>
-                <group>
-                    <field name="name"/>
-                </group>
+            <form string="Book Category">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
             </form>
         </field>
-        
     </record>
+
+    <record id="library_book_category_action" model="ir.actions.act_window">
+        <field name="name">Book Categories</field>
+        <field name="res_model">library.book.category</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="library_book_category_menu"
+              name="Book Categories"
+              action="library_book_category_action"
+              parent="library.library_menu"/>
+              
 </odoo>

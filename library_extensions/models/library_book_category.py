@@ -7,8 +7,3 @@ class LibraryBookCategory(models.Model):
 
     name = fields.Char(string="Category Name", required=True, unique=True)
     
-class LibraryBook(models.Model):
-    _inherit = "library.book"
-
-    category_id = fields.Many2many('library.book.category', string="Categories")
-
